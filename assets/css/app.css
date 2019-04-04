@@ -1,0 +1,44 @@
+/*!
+ * Start Bootstrap - Creative Bootstrap Theme (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+	/*background-color:lightgray;*/
+	}
+
+body {
+    font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;
+}
+
+.post {
+	position: absolute;
+	left: 30%;
+	top : 15em;
+	border-radius:15px;
+	border: bold;
+	border-width:2px;
+	border-color: gray;
+	height: 300px;
+    width:800px;	
+	border-style:solid;
+	
+}
+.header {
+	left : 43%;
+	top : 2em;
+	position: absolute;
+	float:center;
+	margin: 15px;
+	padding: 15px;
+	border-color: black;
+	border: bold;
+	border-style:dotted;
+	
+	
+}
+
