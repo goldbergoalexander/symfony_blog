@@ -62,7 +62,7 @@ class PostController extends AbstractController
 }
 
 /**
- * @Route("/product/edit/{id}")
+ * @Route("/post/edit/{id}")
  */
 public function update($id)
 {
@@ -75,10 +75,10 @@ public function update($id)
         );
     }
 
-    $post->setName('New product name!');
+    $post->setName('New Post name!');
     $entityManager->flush();
 
-    return $this->redirectToRoute('product_show', [
+    return $this->redirectToRoute('post_show', [
         'id' => $post->getId()
     ]);
 }
