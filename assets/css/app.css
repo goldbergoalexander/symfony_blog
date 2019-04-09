@@ -17,15 +17,15 @@ body {
 
 .post {
 	position: absolute;
-	left: 30%;
-	top : 15em;
+	left: 35%;
+	top : 5em;
 	border-radius:15px;
-	border: bold;
-	border-width:2px;
-	border-color: gray;
-	height: 300px;
-    width:800px;	
-	border-style:solid;
+	height: auto;
+    width: 20em;	
+	background-color:lightgray;
+	font-weight:2px;
+	font-size: 20px;
+	page-break-after:auto;
 	
 }
 .header {

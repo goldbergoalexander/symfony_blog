@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use App\Entity\Post;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,13 +11,11 @@ class PostController extends AbstractController
 {
     /**
      * @Route("/post", name="post")
-     */
-    public function index()
+     /
+    public function index1()
 	{
 		// you can fetch the EntityManager via $this->getDoctrine()
-        // or you can add an argument to your action: index(EntityManagerInterface $entityManager)
-        $entityManager = $this->getDoctrine()->getManager();
-
+       
         $post = new Post();
         $post->setName('The post');
         $post->setDate(\DateTime::createFromFormat('Y-m-d', "2019-04-09"));
@@ -36,6 +35,37 @@ class PostController extends AbstractController
 				
         
     }
+	
+	/**
+     * @Route("/post", name="post")
+     */
+	 public function index()
+	{
+		
+	 $post = $this->getDoctrine()->getRepository(Post::class)->findAllValues();
+	 if (!$post) {
+        throw $this->createNotFoundException(
+            'No post found for id '.$id
+        );
+    }
+	
+	//return new JsonResponse($post);
+    // or render a template
+    // in the template, print things with {{ product.name }}
+     return $this->render('post/index.html.twig', array('post'=>$post));
+		
+				
+        
+    }
+	
+	/**
+     * @Route("/post", name="post")
+     */
+	
+	
+	
+	
+	
 	
 	/**
  * @Route("/post/{id}", name="post_show")

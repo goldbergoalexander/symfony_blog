@@ -18,6 +18,22 @@ class PostRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Post::class);
     }
+	
+	//#############################   Set  what we want query from base ######################################
+	public function findAllValues()
+    {
+        $query=$this->createQueryBuilder('p')
+            ->select('p.name, p.date, p.id, p.autor, p.data, p.dates1')
+            ->getQuery();
+            //->getResult()
+         return $query->execute();
+    }
+	
+	//#############################   Set  what we want query from base ######################################
+	
+	
+	
+	
 
     // /**
     //  * @return Post[] Returns an array of Post objects
