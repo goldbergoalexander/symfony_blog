@@ -31,6 +31,21 @@ class Post
      */
     private $autor;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $dates;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $data;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $dates1;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +83,42 @@ class Post
     public function setAutor(string $autor): self
     {
         $this->autor = $autor;
+
+        return $this;
+    }
+
+    public function getDates(): ?int
+    {
+        return $this->dates;
+    }
+
+    public function setDates(int $dates): self
+    {
+        $this->dates = $dates;
+
+        return $this;
+    }
+
+    public function getData(): ?string
+    {
+        return $this->data;
+    }
+
+    public function setData(string $data): self
+    {
+        $this->data = $data;
+
+        return $this;
+    }
+
+    public function getDates1(): ?\DateTimeInterface
+    {
+        return $this->dates1;
+    }
+
+    public function setDates1(\DateTimeInterface $dates1): self
+    {
+        $this->dates1 = $dates1;
 
         return $this;
     }

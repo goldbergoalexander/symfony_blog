@@ -18,9 +18,12 @@ class PostController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();
 
         $post = new Post();
-        $post->setname('Keyboard');
-        $post->setdate(\DateTime::createFromFormat('Y-m-d', "2019-04-08"));
-        $post->setautor('Alexandergoldberg');
+        $post->setName('The post');
+        $post->setDate(\DateTime::createFromFormat('Y-m-d', "2019-04-09"));
+        $post->setAutor('Alexandergoldberg');
+		$post->setDates(20190409);
+		$post->setData('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel lacus efficitur, auctor justo vitae, malesuada orci.');
+		$post->setDates1(\DateTime::createFromFormat('Y-m-d', "2019-04-09"));
 
         // tell Doctrine you want to (eventually) save the Product (no queries yet)
         $entityManager->persist($post);
@@ -28,15 +31,16 @@ class PostController extends AbstractController
         // actually executes the queries (i.e. the INSERT query)
         $entityManager->flush();
 
-        return new Response('Saved new product with id '.$post->getId());
+        return new Response('Saved new post with id '.$post->getId());
 		
 				
         
     }
 	
 	/**
-     * @Route get Posts 
-     */
+ * @Route("/post/{id}", name="post_show")
+ */
+ 
 	 public function show($id)
 {
     $post = $this->getDoctrine()
@@ -45,21 +49,74 @@ class PostController extends AbstractController
 
     if (!$post) {
         throw $this->createNotFoundException(
-            'No product found for id '.$id
+            'No post found for id '.$id
         );
     }
 
-    return new Response('Check out this great product: '.$post->getname());
+    return new Response('Post name: '.$post->getName()."<br>"."Author : ".$post->getAutor()."<br>"."data : ".$post->getData()."<br>"."date : ".$post->getDates() );
+    
+	 
+    // or render a template
+    // in the template, print things with {{ product.name }}
+    // return $this->render('product/show.html.twig', ['product' => $product]);
+}
+
+/**
+ * @Route("/product/edit/{id}")
+ */
+public function update($id)
+{
+    $entityManager = $this->getDoctrine()->getManager();
+    $post = $entityManager->getRepository(Post::class)->find($id);
+
+    if (!$post) {
+        throw $this->createNotFoundException(
+            'No post found for id '.$id
+        );
+    }
+
+    $post->setName('New product name!');
+    $entityManager->flush();
+
+    return $this->redirectToRoute('product_show', [
+        'id' => $post->getId()
+    ]);
+}
+
+
+
+
+
+
+
+	 
+	/**
+ * @Route("/post/{id}", name="post_show")
+ */
+ 
+ /**
+ * @Route("/post/{id}", name="post_show")
+ /
+ 
+	 public function show($id)
+{
+    $repository = $this->getDoctrine()->getRepository(Post::class);
+        $post = $repository->find($id);
+
+    if (!$post) {
+        throw $this->createNotFoundException(
+            'No post found for id '.$id
+        );
+    }
+
+    return new Response('Check out this great post: '.$post = $repository->findOne());
 
     // or render a template
     // in the template, print things with {{ product.name }}
     // return $this->render('product/show.html.twig', ['product' => $product]);
 }
-	 
-	 /**
-     * @Route get Posts 
-     */
-	
-	
+	/**
+ * @Route("/post/{id}", name="post_show")
+ */
 	
 }
