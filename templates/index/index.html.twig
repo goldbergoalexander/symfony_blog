@@ -1,16 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PostController!{% endblock %}
-
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-	
-
-<div class="example-wrapper">
+ <div class="example-wrapper">
 <center><input class  = "button_post_home" type="button" value = "SHOW POSTS" onclick="window.location.href='{{ path('app_post') }}'" ></input>&nbsp<input class  = "button_login_home" type="button" value = "LOGIN"></input></center>     
-    
-</div>
+    </div>
 {% endblock %}

@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}
+ 
+    <header>
+	<div class="nav-container">
+  <nav>
+    <div class="logo">
+      <a href="#" class="logo">THE BLOG</a>
+    </div>
+    <div class="menu">
+      <a href="{{path('app_login')}}">login</a>
+	  <a href="{{ path('index') }}">Home</a>
+      <!--<a href="#"></a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Account</a>-->
+    </div>
+  </nav>
+</div>
+{% block stylesheets %}
 		{{ encore_entry_link_tags('app') }}
-
-            <!-- Renders a link tag (if your module requires any CSS)
-                 <link rel="stylesheet" href="/build/app.css"> -->
-		
-		{% endblock %}
-    </head>
+             <link href="{{ asset('./build/app.css') }}" rel="stylesheet"/>
+ 		{% endblock %}	
+    </header>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+		{% endblock %}
         {% block javascripts %}
 		{{ encore_entry_script_tags('app') }}
 
