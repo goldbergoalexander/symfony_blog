@@ -8,24 +8,21 @@
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
-
-<div class="post">
-     <ul id="post">
+<input class  = "button_insert" type="button" value = "HOME" onclick="window.location.href='{{ path('index') }}'"></input>&nbsp<input class  = "button_login" type="button" value = "ADD POST"></input>
+<div class="post"> <center>ALL POSTS : <br /></center>
+     <ul >
             {% for keys in post %}
-			    <span> #-Post-#</span><br />
+						    <span> #-Post-#</span><br />
 				<span> Id:{{keys.id}}</span><br />
                 <span> Name:{{keys.name}}</span><br />
 				<span> Data:{{keys.data}}</span><br />
 				<span> Author:{{keys.autor}}</span><br />
-				<span> #######------#######</span><br /><br />
+				<br /><input class = "button_edit" type="button" value = "EDIT">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</input><input class = "button_delete" type="button" value = "DELETE"></input><br /><br />
+							
 								
             {% endfor %}
         </ul>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/goldb/symfony/blog/src/Controller/PostController.php'|file_link(0) }}">src/Controller/PostController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/goldb/symfony/blog/templates/post/index.html.twig'|file_link(0) }}">templates/post/index.html.twig</a></code></li>
-    </ul>
+    
 </div>
 {% endblock %}
