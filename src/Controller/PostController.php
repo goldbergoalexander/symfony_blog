@@ -6,13 +6,17 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use App\Entity\Post;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class PostController extends AbstractController
 {
     /**
      * @Route("/post", name="post")
-     /
-    public function index1()
+     */
+    public function post(Request $request)
 	{
 		// you can fetch the EntityManager via $this->getDoctrine()
        
@@ -23,14 +27,33 @@ class PostController extends AbstractController
 		$post->setDates(20190409);
 		$post->setData('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel lacus efficitur, auctor justo vitae, malesuada orci.');
 		$post->setDates1(\DateTime::createFromFormat('Y-m-d', "2019-04-09"));
-
-        // tell Doctrine you want to (eventually) save the Product (no queries yet)
+		
+		$form = $this->createFormBuilder($post)
+            ->add('name', TextType::class)
+			->add('autor', TextType::class)
+			->add('data', TextType::class)
+			->add('date', DateType::class)
+            ->add('save', SubmitType::class, ['label' => 'Create Post'])
+            ->getForm();
+		
+		// tell Doctrine you want to (eventually) save the Product (no queries yet)
         $entityManager->persist($post);
 
         // actually executes the queries (i.e. the INSERT query)
         $entityManager->flush();
+		
+		return $this->render('post/index.html.twig', [
+            'form' => $form->createView(),
+        ]);
+		
+		
+		
+		
+		
 
-        return new Response('Saved new post with id '.$post->getId());
+        
+
+        //return new Response('Saved new post with id '.$post->getId());
 		
 				
         

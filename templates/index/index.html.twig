@@ -1,18 +1,3 @@
-<html>
-<!-- the ccoment -->
-<head>
-<link rel="stylesheet" href="./build/app.css">
-<div class = "header">
-<h1>This is blog</h1>
-</div>
-</head>
-<body>
-<div class  = "post">
-<h1>Your lucky number is {{ index }}</h1>
-</div>
-</body>
-<html>
-
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello PostController!{% endblock %}
@@ -22,23 +7,10 @@
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
-<div class="example-wrapper">
-     <ul id="post">
-            {% for keys in post %}
-			    <span> #-Post-#</span><br />
-				<span> Id:{{keys.id}}</span><br />
-                <span> Name:{{keys.name}}</span><br />
-				<span> Data:{{keys.data}}</span><br />
-				<span> Author:{{keys.autor}}</span><br />
-				<span> #######------#######</span><br /><br />
-								
-            {% endfor %}
-        </ul>
+	
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/goldb/symfony/blog/src/Controller/PostController.php'|file_link(0) }}">src/Controller/PostController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/goldb/symfony/blog/templates/post/index.html.twig'|file_link(0) }}">templates/post/index.html.twig</a></code></li>
-    </ul>
+<div class="example-wrapper">
+<center><input class  = "button_post_home" type="button" value = "SHOW POSTS" onclick="window.location.href='{{ path('app_post') }}'" ></input>&nbsp<input class  = "button_login_home" type="button" value = "LOGIN"></input></center>     
+    
 </div>
 {% endblock %}

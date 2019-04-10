@@ -17,15 +17,19 @@ body {
 
 .post {
 	position: absolute;
-	left: 35%;
-	top : 5em;
+	left: 40%;
+	top : 10em;
 	border-radius:15px;
 	height: auto;
-    width: 20em;	
-	background-color:lightgray;
+    width: 25em;	
+	/*background-color:#F9F9F2;*/
 	font-weight:2px;
 	font-size: 20px;
-	page-break-after:auto;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	  -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+	font-weight:900; 
+	
 	
 }
 .header {
@@ -41,4 +45,162 @@ body {
 	
 	
 }
+.button_edit{
+	
+  animation: 2s point1 infinite;
+  background-color: #FACC2E ; /* yellow */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+	font-style:bold;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	  -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+	font-weight:900; 
+}
+.button_delete{
+	color: red;
+  animation: 2s point1 infinite;
+  background-color: #ff5252 ; /* Red */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+	font-style:bold;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	  -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+	font-weight:900; 
+}
 
+.button_insert{
+	position:relative;
+  top:5em;
+  left:35%;
+  width:200px;
+    color: red;
+  animation: 2s point1 infinite;
+  background-color: #298A08 ; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+	font-style:bold;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	  -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+	font-weight:900; 
+  }
+.button_insert:hover{
+animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  background-color:orange;
+  -webkit-transform: rotate(180deg);
+}
+.button_login{
+	width:200px;
+	position:relative;
+  top:5em;
+  left:50%;
+    color: red;
+  animation: 2s point1 infinite;
+  background-color: #ff5252 ; /* Red */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+	font-style:bold;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	  -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+	font-weight:900; 
+  }
+.button_login:hover{
+animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  background-color:orange;
+  -webkit-transform: rotate(180deg);
+}
+
+/* For homepage */
+.button_post_home{
+	position:relative;
+  top:10em;
+  left:auto;
+  width:200px;
+    color: red;
+  animation: 2s point1 infinite;
+  background-color: #298A08 ; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+	font-style:bold;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	  -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+	font-weight:900; 
+  }
+.button_post_home:hover{
+animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  background-color:orange;
+  -webkit-transform: rotate(180deg);
+}
+.button_login_home{
+	width:200px;
+	position:relative;
+  top:10em;
+  left:auto;
+    color: red;
+  animation: 2s point1 infinite;
+  background-color: #ff5252 ; /* Red */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+	font-style:bold;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	  -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+	font-weight:900; 
+  }
+.button_login_home:hover{
+animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  background-color:orange;
+  -webkit-transform: rotate(180deg);
+}
+
+/* For homepage */
+	
+	
+	
+	
