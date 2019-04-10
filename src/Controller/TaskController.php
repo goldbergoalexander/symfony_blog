@@ -19,10 +19,14 @@ class TaskController extends AbstractController
         // creates a task and gives it some dummy data for this example
         $task = new Task();
         $task->setTask('Write a blog post');
-        $task->setDueDate(new \DateTime('tomorrow'));
+		$task->setAuthor('Yourname');
+		$task->setPostData('Some Data');
+		$task->setDueDate(new \DateTime('today'));
 
         $form = $this->createFormBuilder($task)
             ->add('task', TextType::class)
+			->add('author', TextType::class)
+			->add('postData', TextType::class)
             ->add('dueDate', DateType::class)
             ->add('save', SubmitType::class, ['label' => 'Create Task'])
             ->getForm();

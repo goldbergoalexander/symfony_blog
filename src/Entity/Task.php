@@ -26,6 +26,16 @@ class Task
      */
     private $dueDate;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $author;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $postdata;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -51,6 +61,30 @@ class Task
     public function setDueDate(?\DateTimeInterface $dueDate): self
     {
         $this->dueDate = $dueDate;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?string
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(string $author): self
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    public function getPostdata(): ?string
+    {
+        return $this->postdata;
+    }
+
+    public function setPostdata(?string $postdata): self
+    {
+        $this->postdata = $postdata;
 
         return $this;
     }
