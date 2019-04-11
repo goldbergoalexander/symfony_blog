@@ -36,17 +36,18 @@ class PostController extends AbstractController
             ->add('save', SubmitType::class, ['label' => 'Create Post'])
             ->getForm();
 		
-		// tell Doctrine you want to (eventually) save the Product (no queries yet)
-        $entityManager->persist($post);
-
-        // actually executes the queries (i.e. the INSERT query)
-        $entityManager->flush();
-		
-		return $this->render('post/index.html.twig', [
+		 return $this->render('post/index.html.twig', [
             'form' => $form->createView(),
         ]);
 		
-		
+/**
+*@Route("/post", name="post_add")
+*/	
+
+ 
+/**
+*
+*/	
 		
 		
 		
@@ -75,7 +76,8 @@ class PostController extends AbstractController
 	//return new JsonResponse($post);
     // or render a template
     // in the template, print things with {{ product.name }}
-     return $this->render('post/index.html.twig', array('post'=>$post));
+	$post1=array_reverse($post);
+     return $this->render('post/index.html.twig', array('post'=>$post1));
 		
 				
         

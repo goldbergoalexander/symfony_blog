@@ -8,13 +8,13 @@
 </style>
 <input class  = "button_insert" type="button" value = "HOME" onclick="window.location.href='{{ path('index') }}'"></input>&nbsp<input class  = "button_login" type="button" value = "ADD POST" onclick="window.location.href='{{ path('app_task') }}'"></input>
 <div class="post"> <center>ALL POSTS : <br /></center>
-     <ul >
+    <ul >
             {% for keys in post %}
 						    <span> #-Post-#</span><br />
 				<span> Id:{{keys.id}}</span><br />
                 <span> Name:{{keys.name}}</span><br />
 				<span> Data:{{keys.data}}</span><br />
-				<span> Author:{{keys.autor}}</span><br />
+				<span> Author:{{keys.autor}}</span><br /> 
 				<br /><input class = "button_edit" type="button" value = "EDIT">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</input><input class = "button_delete" type="button" value = "DELETE"></input><br /><br />
 							
 								
@@ -23,4 +23,5 @@
 
     
 </div>
+
 {% endblock %}
