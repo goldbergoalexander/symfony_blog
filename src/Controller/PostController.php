@@ -44,20 +44,7 @@ class PostController extends AbstractController
 *@Route("/post", name="post_add")
 */	
 
- 
-/**
-*
-*/	
-		
-		
-		
 
-        
-
-        //return new Response('Saved new post with id '.$post->getId());
-		
-				
-        
     }
 	
 	/**
@@ -73,9 +60,7 @@ class PostController extends AbstractController
         );
     }
 	
-	//return new JsonResponse($post);
-    // or render a template
-    // in the template, print things with {{ product.name }}
+
 	$post1=array_reverse($post);
      return $this->render('post/index.html.twig', array('post'=>$post1));
 		
@@ -138,40 +123,4 @@ public function update($id)
     ]);
 }
 
-
-
-
-
-
-
-	 
-	/**
- * @Route("/post/{id}", name="post_show")
- */
- 
- /**
- * @Route("/post/{id}", name="post_show")
- /
- 
-	 public function show($id)
-{
-    $repository = $this->getDoctrine()->getRepository(Post::class);
-        $post = $repository->find($id);
-
-    if (!$post) {
-        throw $this->createNotFoundException(
-            'No post found for id '.$id
-        );
-    }
-
-    return new Response('Check out this great post: '.$post = $repository->findOne());
-
-    // or render a template
-    // in the template, print things with {{ product.name }}
-    // return $this->render('product/show.html.twig', ['product' => $product]);
-}
-	/**
- * @Route("/post/{id}", name="post_show")
- */
-	
 }

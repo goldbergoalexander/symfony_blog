@@ -23,7 +23,8 @@ class PostRepository extends ServiceEntityRepository
 	public function findAllValues()
     {
         $query=$this->createQueryBuilder('p')
-            ->select('p.name, p.date, p.id, p.autor, p.data, p.dates1')
+            ->select("p.name,  DATE_FORMAT(p.date,'%m-%d-%y') AS date, p.id, p.autor, p.data, p.dates1")
+			->orderBy('p.date', 'ASC')
             ->getQuery();
             //->getResult()
          return $query->execute();
