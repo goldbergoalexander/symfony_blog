@@ -18,16 +18,7 @@ class TaskController extends AbstractController
      */
    public function task(Request $request)
     {
-     /*   
-        $post = new Post();
-        $post->setName('The post');
-        $post->setDate(\DateTime::createFromFormat('Y-m-d', "2019-04-09"));
-        $post->setAutor('Alexandergoldberg');
-		$post->setDates(20190409);
-		$post->setData('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel lacus efficitur, auctor justo vitae, malesuada orci.');
-		$post->setDates1(\DateTime::createFromFormat('Y-m-d', "2019-04-09"));
-		*/
-		  $post = new Post();
+     	$post = new Post();
 		$form = $this->createFormBuilder($post)
             ->add('name', TextType::class)
 			->add('date', DateType::class)
@@ -44,20 +35,10 @@ class TaskController extends AbstractController
 
     if ($form->isSubmitted()) {
         $post = $form->getData();
-        //$post->setName($post['name']);
-		//$post->setAutor($post['autor']);
-		//$post->setData($post['data']);
-		//$post->setDate($post['date']);
-        // ... perform some action, such as saving the task to the database
-        // for example, if Task is a Doctrine entity, save it!
         $entityManager = $this->getDoctrine()->getManager();
-		//$post = $form->getData();
-        $entityManager->persist($post);
+		$entityManager->persist($post);
         $entityManager->flush();
-
-    //return new Response('Saved new product with id '.$post->getId());
-	  //return $this->render('post/index.html.twig', ['post'=>$post]);
-	  return $this->redirectToRoute('post');
+        return $this->redirectToRoute('post');
     }
 
     

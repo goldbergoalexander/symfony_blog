@@ -96,9 +96,7 @@ class PostController extends AbstractController
     return new Response('Post name: '.$post->getName()."<br>"."Author : ".$post->getAutor()."<br>"."data : ".$post->getData()."<br>"."date : ".$post->getDates() );
     
 	 
-    // or render a template
-    // in the template, print things with {{ product.name }}
-    // return $this->render('product/show.html.twig', ['product' => $product]);
+
 }
 
 /**
