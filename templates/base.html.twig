@@ -10,11 +10,8 @@
     <div class="menu">
       <a href="{{path('app_login')}}">login</a>
 	  <a href="{{ path('index') }}">Home</a>
-      <!--<a href="#"></a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-      <a href="#">Account</a>-->
-    </div>
+      <a href="{{ path('app_task') }}">Add_Post</a>
+      </div>
   </nav>
 </div>
 {% block stylesheets %}
@@ -24,15 +21,11 @@
     </header>
     <body>
         {% block body %}
+            {% block main %}{% endblock %}
 		{% endblock %}
         {% block javascripts %}
 		{{ encore_entry_script_tags('app') }}
-
-            <!-- Renders app.js & a webpack runtime.js file
-                <script src="/build/runtime.js"></script>
-                <script src="/build/app.js"></script> -->
-		
-		{% endblock %}
+  		{% endblock %}
     </body>
 </html>
 

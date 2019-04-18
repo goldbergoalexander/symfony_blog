@@ -44,7 +44,6 @@ class PostController extends AbstractController
 *@Route("/post", name="post_add")
 */	
 
-
     }
 	
 	/**
@@ -71,9 +70,8 @@ class PostController extends AbstractController
 	/**
      * @Route("/post", name="post")
      */
-	
-	
-	
+
+
 	
 	
 	
@@ -113,7 +111,9 @@ public function update($id)
         );
     }
 
-    $post->setName('New Post name!');
+    $post->setData('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse posuere sem vitae massa mattis, et commodo elit convallis. In consequat euismod nibh aliquam finibus. Nulla tincidunt blandit molestie. Ut lobortis pharetra aliquam. Donec eget convallis enim, a ultricies nisl. Nulla facilisi. Nunc ultrices dui eu tincidunt gravida. Integer interdum metus in justo scelerisque, quis efficitur tellus vestibulum. Etiam eget nulla non felis rhoncus aliquam. Morbi blandit congue tellus. Duis lacinia, erat id pretium fermentum, libero enim vulputate lorem, nec venenatis leo tellus ut dolor. Phasellus vitae tempor libero. Aliquam fringilla eleifend fringilla.
+
+Vivamus condimentum ante sapien, sit amet suscipit turpis euismod at. Nam tempor dignissim aliquam. Ut et bibendum augue, quis lacinia enim. Praesent aliquet non elit id facilisis. Vivamus vel lobortis urna. Aenean vestibulum lorem sed enim vehicula, eget maximus metus gravida. Donec efficitur feugiat facilisis. Nam luctus lectus nullam.');
     $entityManager->flush();
 
     return $this->redirectToRoute('post_show', [
@@ -122,3 +122,4 @@ public function update($id)
 }
 
 }
+
