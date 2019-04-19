@@ -18,14 +18,28 @@ class TaskController extends AbstractController
      */
    public function task(Request $request)
     {
+        /*$day = new \DateTime::createFromFormat('m-d-y', 'now');*/
      	$post = new Post();
+        $post->setDate(new \DateTime("now"));
+        $post->setDates(20190409);
+        $post->setDates1(new \DateTime('now'));
 		$form = $this->createFormBuilder($post)
             ->add('name', TextType::class)
-			->add('date', DateType::class)
+			/*->add('date', DateType::class)*/
+
 			->add('autor', TextType::class)
-			->add('dates', TextType::class)
-			->add('data', TextType::class)
-			->add('dates1', DateType::class)
+			->add('data', null,
+                [
+                    'attr' => ['rows' => 20],
+
+                ]
+                )
+            ->add('data_summary', null,
+                [
+                    'attr' => ['rows' => 20],
+
+                ]
+            )
             ->add('save', SubmitType::class, ['label' => 'Create Post'])
             ->getForm();
 		

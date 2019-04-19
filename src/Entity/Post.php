@@ -46,6 +46,11 @@ class Post
      */
     private $dates1;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $data_summary;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -119,6 +124,18 @@ class Post
     public function setDates1(\DateTimeInterface $dates1): self
     {
         $this->dates1 = $dates1;
+
+        return $this;
+    }
+
+    public function getDataSummary(): ?string
+    {
+        return $this->data_summary;
+    }
+
+    public function setDataSummary(?string $data_summary): self
+    {
+        $this->data_summary = $data_summary;
 
         return $this;
     }

@@ -23,7 +23,7 @@ class PostRepository extends ServiceEntityRepository
 	public function findAllValues()
     {
         $query=$this->createQueryBuilder('p')
-            ->select("p.name,  DATE_FORMAT(p.date,'%m-%d-%y') AS date, p.id, p.autor, p.data, p.dates1")
+            ->select("p.name,  DATE_FORMAT(p.date,'%m-%d-%y') AS date, p.id, p.autor, p.data, p.dates1,p.data_summary")
 			->orderBy('p.date', 'ASC')
             ->getQuery();
             //->getResult()
@@ -31,7 +31,19 @@ class PostRepository extends ServiceEntityRepository
     }
 	
 	//#############################   Set  what we want query from base ######################################
-	
+//#############################   find by one  ######################################
+    public function findOneValue($value)
+    {
+        $query=$this->createQueryBuilder('p')
+            ->select("p.name,  DATE_FORMAT(p.date,'%m-%d-%y') AS date, p.id, p.autor, p.data, p.dates1,p.data_summary")
+            ->where("p.id=$value")
+            ->orderBy('p.date', 'ASC')
+            ->getQuery();
+        //->getResult()
+        return $query->execute();
+    }
+
+    //#############################   Set  what we want query from base ######################################
 	
 	
 	

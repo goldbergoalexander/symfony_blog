@@ -31,7 +31,17 @@ class PostController extends AbstractController
 		$form = $this->createFormBuilder($post)
             ->add('name', TextType::class)
 			->add('autor', TextType::class)
-			->add('data', TextType::class)
+			->add('data', TextType::class,[
+                'attr' => ['rows' => 20],
+                'help' => 'help.post_content',
+                'label' => 'label.content',
+            ])
+            ->add('data_summary', null,
+                [
+                    'attr' => ['rows' => 20],
+
+                ]
+            )
 			->add('date', DateType::class)
             ->add('save', SubmitType::class, ['label' => 'Create Post'])
             ->getForm();
@@ -83,7 +93,7 @@ class PostController extends AbstractController
 {
     $post = $this->getDoctrine()
         ->getRepository(Post::class)
-        ->find($id);
+        ->findOneValue($id);
 
     if (!$post) {
         throw $this->createNotFoundException(
@@ -91,7 +101,8 @@ class PostController extends AbstractController
         );
     }
 
-    return new Response('Post name: '.$post->getName()."<br>"."Author : ".$post->getAutor()."<br>"."data : ".$post->getData()."<br>"."date : ".$post->getDates() );
+/*    return new Response('Post name: '.$post->getName()."<br>"."Author : ".$post->getAutor()."<br>"."Summary : ".$post->getDataSummary()."<br>"."data : ".$post->getData()."<br>"."date : ".$post->getDates() );*/
+    return $this->render('post/post_show.html.twig', array('posts'=>$post[0]));
     
 	 
 
